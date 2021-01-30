@@ -1,7 +1,7 @@
 # BASE IMAGE
 FROM node:12.18.3-alpine AS base
 # SETING UP WORKDIR
-WORKDIR /opt/bnext/contact-book-api
+WORKDIR /opt/barter_energy/contact-book-api
 # COPY DIRECTORIES AND FILES
 COPY package-lock.json .
 COPY package.json .

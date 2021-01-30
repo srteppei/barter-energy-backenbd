@@ -19,10 +19,18 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "docker:pro": "docker-compose -f docker/pro/docker-compose.yml up",
+    "test:e2e:watch": "jest --watchAll --config ./test/jest-e2e.json",
+    "docker:pro": "docker-compose -f docker/pro/docker-compose.yml",
+    "docker:pro:up": "npm run docker:pro -- up",
+    "docker:pro:clean": "npm run docker:pro -- down --rmi all",
     "docker:local": "docker-compose -f docker/pro/docker-compose.yml -f docker/local/docker-compose.yml --env-file docker/local/.env",
     "docker:local:up": "npm run docker:local -- up",
-    "docker:test": "docker-compose -f docker/pro/docker-compose.yml -f docker/local/docker-compose.yml -f docker/test/docker-compose.yml --env-file docker/local/.env up"
+    "docker:local:clean": "npm run docker:local -- down --rmi all",
+    "docker:test": "docker-compose -f docker/pro/docker-compose.yml -f docker/local/docker-compose.yml -f docker/test/docker-compose.yml --env-file docker/local/.env",
+    "docker:test:up": "npm run docker:test -- up",
+    "docker:test:watch": "npm run docker:test -- -f docker/test/docker-compose.watch.yml up",
+    "docker:test:clean": "npm run docker:test -- down --rmi all",
+    "docker:clean:all": "npm run docker:test:clean && npm run docker:local:clean && npm run docker:pro:clean"
   },
   "dependencies": {
     "@nestjs/common": "^7.5.1",

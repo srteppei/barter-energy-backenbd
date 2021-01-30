@@ -1,5 +1,5 @@
 FROM node:12.18.3
-WORKDIR /opt/bnext/contact-book-api
+WORKDIR /opt/barter_energy/contact-book-api
 COPY . .
 
 ENV DATABASE_HOST localhost
