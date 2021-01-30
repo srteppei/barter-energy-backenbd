@@ -1,0 +1,4 @@
+CREATE TABLE `contact` (
+  `name` VARCHAR(250) NOT NULL,
+  `email` VARCHAR(250) NOT NULL UNIQUE
+)
