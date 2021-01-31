@@ -13,7 +13,7 @@ export class ContactController {
   @Post('upload')
   @UseInterceptors(FileInterceptor('contacts.vcf'))
   uploadFile(@UploadedFile() file) {
-   this.vCardService.uploadContacts(parse(file.buffer));
+   return this.vCardService.uploadContacts(parse(file.buffer));
   }
 
 }

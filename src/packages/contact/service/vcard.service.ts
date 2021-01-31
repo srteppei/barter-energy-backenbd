@@ -1,29 +1,34 @@
 import { Injectable, Logger } from '@nestjs/common';
 import * as vCard from 'vcf';
-import { Contact } from '../domain/contact';
+import { ContactEntity } from '../domain/contact';
+import { ContactService } from './contact.service';
 
 @Injectable()
 export class VCardService {
 
+  constructor(
+    private contactService: ContactService,
+  ) {}
+
   uploadContacts(vCardList: vCard[]) {
-    const contactList = vCardList.map(this.mapVCardToContact);
+    const contactEntityList = vCardList.map(this.mapVCardToContact);
+    return this.contactService.createContactFromList(contactEntityList);
   }
 
   private mapVCardToContact(vcard: vCard) {
-    let email;
-    let name;
+    const contactEntity = new ContactEntity()
     const json = vcard.toJSON()   
       json[1].forEach(element => {        
         switch(element[0]) {
           case 'fn':
-            email = element[3];  
+            contactEntity.name = element[3] as string;  
             break
           case 'email':
-            name = element[3]
+            contactEntity.email = element[3] as string;
             break
         }        
       })
-    return new Contact(email, name);
+    return contactEntity;
   }
 
 }
