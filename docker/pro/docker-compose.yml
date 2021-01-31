@@ -1,0 +1,10 @@
+version: "3.7"
+
+services: 
+  barter_energy_api:
+    container_name: barter_energy_api
+    build: 
+      context: ../..
+      dockerfile: docker/pro/dockerfile
+    ports: 
+      - 3000:3000
