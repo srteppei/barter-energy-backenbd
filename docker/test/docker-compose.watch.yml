@@ -1,0 +1,5 @@
+version: "3.7"
+
+services: 
+  barter_energy_api:
+    command: ./docker/wait-for-it.sh barter_energy_database_test:$DATABASE_PORT --timeout=10 -- npm run test:e2e:watch

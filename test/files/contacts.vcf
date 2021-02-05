@@ -1,0 +1,24 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Contacto Circular
+N:Circular;Contacto;;;
+item1.EMAIL;TYPE=INTERNET:contact@trycircular.com
+item1.X-ABLabel:
+CATEGORIES:myContacts
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:David Valverde
+N:Valverde;David;;;
+item1.EMAIL;TYPE=INTERNET:davidvalverde251293@hotmail.com
+item1.X-ABLabel:
+CATEGORIES:myContacts
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Juan Palomares
+N:Palomares;Juan;;;
+item1.EMAIL;TYPE=INTERNET:juan@barterenergy.es
+item1.X-ABLabel:
+CATEGORIES:myContacts
+END:VCARD
